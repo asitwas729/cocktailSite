@@ -1,11 +1,11 @@
-package com.example.haren201930326.service.impl;
+package com.example.yanghyemin.service.impl;
 
-import com.example.haren201930326.dao.BoardDao;
-import com.example.haren201930326.dto.BoardDto;
-import com.example.haren201930326.dto.BoardResponseDto;
-import com.example.haren201930326.dto.ChangeBoardDto;
-import com.example.haren201930326.entity.Board;
-import com.example.haren201930326.service.BoardService;
+import com.example.yanghyemin.dao.BoardDao;
+import com.example.yanghyemin.dto.BoardDto;
+import com.example.yanghyemin.dto.BoardResponseDto;
+import com.example.yanghyemin.dto.ChangeBoardDto;
+import com.example.yanghyemin.entity.Board;
+import com.example.yanghyemin.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

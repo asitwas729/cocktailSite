@@ -1,6 +1,6 @@
-package com.example.haren201930326.dao;
+package com.example.yanghyemin.dao;
 
-import com.example.haren201930326.entity.User;
+import com.example.yanghyemin.entity.User;
 
 import java.util.List;
 

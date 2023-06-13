@@ -1,6 +1,6 @@
-package com.example.haren201930326.dto;
+package com.example.yanghyemin.dto;
 
-import com.example.haren201930326.entity.Order;
+import com.example.yanghyemin.entity.Order;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

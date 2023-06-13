@@ -1,6 +1,6 @@
-package com.example.haren201930326.entity;
+package com.example.yanghyemin.entity;
 
-import lombok.*;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

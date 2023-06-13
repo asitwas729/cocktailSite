@@ -1,4 +1,4 @@
-package com.example.haren201930326.config;
+package com.example.yanghyemin.config;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;

@@ -1,12 +1,10 @@
-package com.example.haren201930326.dao.impl;
+package com.example.yanghyemin.dao.impl;
 
-import com.example.haren201930326.dao.ProductDao;
-import com.example.haren201930326.entity.Product;
-import com.example.haren201930326.repository.ProductRepository;
-import com.example.haren201930326.repository.QProductRepository;
+import com.example.yanghyemin.dao.ProductDao;
+import com.example.yanghyemin.entity.Product;
+import com.example.yanghyemin.repository.ProductRepository;
+import com.example.yanghyemin.repository.QProductRepository;
 import com.querydsl.core.types.Predicate;
-import com.querydsl.jpa.impl.JPAQueryFactory;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +12,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-import static com.example.haren201930326.entity.QProduct.product;
+import static com.example.yanghyemin.entity.QProduct.product;
 
 @Component
 public class ProductDaoImpl implements ProductDao {

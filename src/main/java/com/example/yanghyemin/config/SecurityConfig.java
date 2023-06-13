@@ -1,9 +1,9 @@
-package com.example.haren201930326.config;
+package com.example.yanghyemin.config;
 
-import com.example.haren201930326.security.CustomAccessDeniedHandler;
-import com.example.haren201930326.security.CustomAuthenicationEntryPoint;
-import com.example.haren201930326.security.JwtAuthenicationFilter;
-import com.example.haren201930326.security.JwtTokenProvider;
+import com.example.yanghyemin.security.CustomAccessDeniedHandler;
+import com.example.yanghyemin.security.CustomAuthenicationEntryPoint;
+import com.example.yanghyemin.security.JwtAuthenicationFilter;
+import com.example.yanghyemin.security.JwtTokenProvider;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;

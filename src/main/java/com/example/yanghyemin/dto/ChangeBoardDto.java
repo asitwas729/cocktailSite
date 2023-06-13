@@ -1,7 +1,10 @@
-package com.example.haren201930326.dto;
+package com.example.yanghyemin.dto;
 
-import com.example.haren201930326.entity.Board;
-import lombok.*;
+import com.example.yanghyemin.entity.Board;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 @Getter

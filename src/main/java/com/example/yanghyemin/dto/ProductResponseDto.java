@@ -1,11 +1,10 @@
-package com.example.haren201930326.dto;
+package com.example.yanghyemin.dto;
 
-import com.example.haren201930326.entity.Product;
+import com.example.yanghyemin.entity.Product;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @Getter
 @Setter

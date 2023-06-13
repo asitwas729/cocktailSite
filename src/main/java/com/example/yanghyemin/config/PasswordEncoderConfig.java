@@ -1,4 +1,4 @@
-package com.example.haren201930326.config;
+package com.example.yanghyemin.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

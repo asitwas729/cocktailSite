@@ -1,16 +1,14 @@
-package com.example.haren201930326.controller;
+package com.example.yanghyemin.controller;
 
-import com.example.haren201930326.dto.OrderDto;
-import com.example.haren201930326.dto.OrderResponseDto;
-import com.example.haren201930326.dto.ProductResponseDto;
-import com.example.haren201930326.dto.UserResponseDto;
-import com.example.haren201930326.entity.Order;
-import com.example.haren201930326.security.JwtTokenProvider;
-import com.example.haren201930326.service.OrderService;
-import com.example.haren201930326.service.ProductService;
-import com.example.haren201930326.service.UserService;
+import com.example.yanghyemin.dto.OrderDto;
+import com.example.yanghyemin.dto.OrderResponseDto;
+import com.example.yanghyemin.dto.ProductResponseDto;
+import com.example.yanghyemin.dto.UserResponseDto;
+import com.example.yanghyemin.security.JwtTokenProvider;
+import com.example.yanghyemin.service.OrderService;
+import com.example.yanghyemin.service.ProductService;
+import com.example.yanghyemin.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

@@ -1,14 +1,9 @@
-package com.example.haren201930326.service.impl;
+package com.example.yanghyemin.service.impl;
 
-import com.example.haren201930326.dao.UserDao;
-import com.example.haren201930326.dto.ProductResponseDto;
-import com.example.haren201930326.dto.UserDto;
-import com.example.haren201930326.dto.UserResponseDto;
-import com.example.haren201930326.entity.Product;
-import com.example.haren201930326.entity.User;
-import com.example.haren201930326.repository.UserRepository;
-import com.example.haren201930326.service.UserService;
-import lombok.AllArgsConstructor;
+import com.example.yanghyemin.dao.UserDao;
+import com.example.yanghyemin.dto.UserResponseDto;
+import com.example.yanghyemin.entity.User;
+import com.example.yanghyemin.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

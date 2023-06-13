@@ -1,9 +1,9 @@
-package com.example.haren201930326.controller;
+package com.example.yanghyemin.controller;
 
-import com.example.haren201930326.dto.ChangeProductDto;
-import com.example.haren201930326.dto.ProductDto;
-import com.example.haren201930326.dto.ProductResponseDto;
-import com.example.haren201930326.service.ProductService;
+import com.example.yanghyemin.dto.ChangeProductDto;
+import com.example.yanghyemin.dto.ProductDto;
+import com.example.yanghyemin.dto.ProductResponseDto;
+import com.example.yanghyemin.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

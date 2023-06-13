@@ -1,12 +1,8 @@
-package com.example.haren201930326.dao.impl;
+package com.example.yanghyemin.dao.impl;
 
-import com.example.haren201930326.dao.UserDao;
-import com.example.haren201930326.entity.Product;
-import com.example.haren201930326.entity.User;
-import com.example.haren201930326.repository.QUserRepository;
-import com.example.haren201930326.repository.UserRepository;
-import com.querydsl.jpa.impl.JPAQueryFactory;
-import lombok.AllArgsConstructor;
+import com.example.yanghyemin.dao.UserDao;
+import com.example.yanghyemin.entity.User;
+import com.example.yanghyemin.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 

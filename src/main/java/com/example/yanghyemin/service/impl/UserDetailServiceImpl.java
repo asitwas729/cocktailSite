@@ -1,8 +1,7 @@
-package com.example.haren201930326.service.impl;
+package com.example.yanghyemin.service.impl;
 
-import com.example.haren201930326.repository.UserRepository;
-import com.example.haren201930326.service.UserDetailService;
-import lombok.RequiredArgsConstructor;
+import com.example.yanghyemin.repository.UserRepository;
+import com.example.yanghyemin.service.UserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

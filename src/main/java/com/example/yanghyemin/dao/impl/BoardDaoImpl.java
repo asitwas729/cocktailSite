@@ -1,18 +1,16 @@
-package com.example.haren201930326.dao.impl;
+package com.example.yanghyemin.dao.impl;
 
-import com.example.haren201930326.dao.BoardDao;
-import com.example.haren201930326.dto.ChangeBoardDto;
-import com.example.haren201930326.entity.Board;
-import com.example.haren201930326.repository.BoardRepository;
-import com.example.haren201930326.repository.QBoardRepository;
+import com.example.yanghyemin.dao.BoardDao;
+import com.example.yanghyemin.dto.ChangeBoardDto;
+import com.example.yanghyemin.entity.Board;
+import com.example.yanghyemin.repository.BoardRepository;
+import com.example.yanghyemin.repository.QBoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
-
-import static com.example.haren201930326.entity.QBoard.board;
 
 @Component
 @RequiredArgsConstructor

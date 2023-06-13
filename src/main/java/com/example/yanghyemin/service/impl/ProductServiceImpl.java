@@ -1,12 +1,11 @@
-package com.example.haren201930326.service.impl;
+package com.example.yanghyemin.service.impl;
 
-import com.example.haren201930326.dao.ProductDao;
-import com.example.haren201930326.dto.ProductDto;
-import com.example.haren201930326.dto.ProductResponseDto;
-import com.example.haren201930326.entity.Product;
-import com.example.haren201930326.service.ProductService;
+import com.example.yanghyemin.dao.ProductDao;
+import com.example.yanghyemin.dto.ProductDto;
+import com.example.yanghyemin.dto.ProductResponseDto;
+import com.example.yanghyemin.entity.Product;
+import com.example.yanghyemin.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;

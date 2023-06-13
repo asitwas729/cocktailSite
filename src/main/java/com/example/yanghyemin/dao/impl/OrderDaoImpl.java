@@ -1,10 +1,9 @@
-package com.example.haren201930326.dao.impl;
+package com.example.yanghyemin.dao.impl;
 
-import com.example.haren201930326.dao.OrderDao;
-import com.example.haren201930326.entity.Order;
-import com.example.haren201930326.repository.OrderRepository;
+import com.example.yanghyemin.dao.OrderDao;
+import com.example.yanghyemin.entity.Order;
+import com.example.yanghyemin.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

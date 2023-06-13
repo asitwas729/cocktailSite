@@ -1,6 +1,5 @@
-package com.example.haren201930326.entity;
+package com.example.yanghyemin.entity;
 
-import com.example.haren201930326.repository.UserRepository;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import lombok.*;

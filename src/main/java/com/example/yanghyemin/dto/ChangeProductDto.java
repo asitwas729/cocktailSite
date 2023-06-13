@@ -1,9 +1,4 @@
-package com.example.haren201930326.dto;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+package com.example.yanghyemin.dto;
 
 public class ChangeProductDto {
     private Long number;

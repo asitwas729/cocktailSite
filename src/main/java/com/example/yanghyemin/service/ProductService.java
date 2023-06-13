@@ -1,7 +1,7 @@
-package com.example.haren201930326.service;
+package com.example.yanghyemin.service;
 
-import com.example.haren201930326.dto.ProductDto;
-import com.example.haren201930326.dto.ProductResponseDto;
+import com.example.yanghyemin.dto.ProductDto;
+import com.example.yanghyemin.dto.ProductResponseDto;
 
 import java.util.List;
 

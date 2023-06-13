@@ -1,9 +1,8 @@
-package com.example.haren201930326.controller;
+package com.example.yanghyemin.controller;
 
-import com.example.haren201930326.dto.SignInResultDto;
-import com.example.haren201930326.dto.SignUpResultDto;
-import com.example.haren201930326.service.SignService;
-import lombok.AllArgsConstructor;
+import com.example.yanghyemin.dto.SignInResultDto;
+import com.example.yanghyemin.dto.SignUpResultDto;
+import com.example.yanghyemin.service.SignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,14 +1,12 @@
-package com.example.haren201930326.controller;
+package com.example.yanghyemin.controller;
 
-import com.example.haren201930326.dto.BoardDto;
-import com.example.haren201930326.dto.BoardResponseDto;
-import com.example.haren201930326.dto.ChangeBoardDto;
-import com.example.haren201930326.dto.UserResponseDto;
-import com.example.haren201930326.entity.Board;
-import com.example.haren201930326.security.JwtTokenProvider;
-import com.example.haren201930326.service.BoardService;
-import com.example.haren201930326.service.UserService;
-import lombok.Getter;
+import com.example.yanghyemin.dto.BoardDto;
+import com.example.yanghyemin.dto.BoardResponseDto;
+import com.example.yanghyemin.dto.ChangeBoardDto;
+import com.example.yanghyemin.dto.UserResponseDto;
+import com.example.yanghyemin.security.JwtTokenProvider;
+import com.example.yanghyemin.service.BoardService;
+import com.example.yanghyemin.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

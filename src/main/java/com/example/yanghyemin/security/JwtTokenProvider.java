@@ -1,6 +1,6 @@
-package com.example.haren201930326.security;
+package com.example.yanghyemin.security;
 
-import com.example.haren201930326.service.UserDetailService;
+import com.example.yanghyemin.service.UserDetailService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;

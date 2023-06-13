@@ -1,4 +1,4 @@
-package com.example.haren201930326.security;
+package com.example.yanghyemin.security;
 
 public enum CommonResponse {
 

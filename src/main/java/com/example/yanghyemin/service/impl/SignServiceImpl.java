@@ -1,13 +1,12 @@
-package com.example.haren201930326.service.impl;
+package com.example.yanghyemin.service.impl;
 
-import com.example.haren201930326.dto.SignInResultDto;
-import com.example.haren201930326.dto.SignUpResultDto;
-import com.example.haren201930326.entity.User;
-import com.example.haren201930326.repository.UserRepository;
-import com.example.haren201930326.security.CommonResponse;
-import com.example.haren201930326.security.JwtTokenProvider;
-import com.example.haren201930326.service.SignService;
-import lombok.AllArgsConstructor;
+import com.example.yanghyemin.dto.SignInResultDto;
+import com.example.yanghyemin.dto.SignUpResultDto;
+import com.example.yanghyemin.entity.User;
+import com.example.yanghyemin.repository.UserRepository;
+import com.example.yanghyemin.security.CommonResponse;
+import com.example.yanghyemin.security.JwtTokenProvider;
+import com.example.yanghyemin.service.SignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

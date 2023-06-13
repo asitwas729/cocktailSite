@@ -1,6 +1,6 @@
-package com.example.haren201930326.repository;
+package com.example.yanghyemin.repository;
 
-import com.example.haren201930326.entity.Order;
+import com.example.yanghyemin.entity.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

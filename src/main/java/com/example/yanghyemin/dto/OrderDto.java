@@ -1,4 +1,4 @@
-package com.example.haren201930326.dto;
+package com.example.yanghyemin.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

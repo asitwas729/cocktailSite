@@ -1,9 +1,8 @@
-package com.example.haren201930326.service;
+package com.example.yanghyemin.service;
 
-import com.example.haren201930326.dto.BoardDto;
-import com.example.haren201930326.dto.BoardResponseDto;
-import com.example.haren201930326.dto.ChangeBoardDto;
-import com.example.haren201930326.entity.Board;
+import com.example.yanghyemin.dto.BoardDto;
+import com.example.yanghyemin.dto.BoardResponseDto;
+import com.example.yanghyemin.dto.ChangeBoardDto;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
-package com.example.haren201930326.dao;
+package com.example.yanghyemin.dao;
 
-import com.example.haren201930326.dto.ChangeBoardDto;
-import com.example.haren201930326.entity.Board;
+import com.example.yanghyemin.dto.ChangeBoardDto;
+import com.example.yanghyemin.entity.Board;
 
 import java.util.List;
 
