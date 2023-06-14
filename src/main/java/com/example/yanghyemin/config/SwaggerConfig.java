@@ -15,9 +15,10 @@ public class SwaggerConfig {
     @Bean
     public OpenAPI openAPI() {
 
-        Components components = new Components();
-        components.addSecuritySchemes(JWT, getJwtSecuritySchemes());
-        SecurityRequirement securityRequirement = new SecurityRequirement().addList(JWT);
+        Components components = new Components()
+            .addSecuritySchemes(JWT, getJwtSecuritySchemes());
+        SecurityRequirement securityRequirement = new SecurityRequirement()
+            .addList(JWT);
 
         Info info = new Info()
                 .version("v1.0.0")

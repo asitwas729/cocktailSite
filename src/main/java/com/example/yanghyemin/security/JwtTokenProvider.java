@@ -25,7 +25,7 @@ public class JwtTokenProvider {
     private final UserDetailService userDetailService;
 
     private String secretKey = "daelimSpring!@#$daelimSpring!@#$daelimSpring!@#$";
-    private final long tokenValidMillisecond = 1000L * 60 * 60;
+    private final long tokenValidMillisecond = 1000L * 60 * 60 * 24 * 30;
 
     @PostConstruct
     protected void init() {
@@ -38,8 +38,12 @@ public class JwtTokenProvider {
         Claims claims = Jwts.claims().setSubject(userUid);
         claims.put("roles", roles);
         Date now = new Date();
-        String token = Jwts.builder().setClaims(claims).setIssuedAt(now).
-                setExpiration(new Date(now.getTime() + tokenValidMillisecond)).signWith(SignatureAlgorithm.HS256, secretKey).compact();
+        String token = Jwts.builder()
+            .setClaims(claims)
+            .setIssuedAt(now)
+            .setExpiration(new Date(now.getTime() + tokenValidMillisecond))
+            .signWith(SignatureAlgorithm.HS256, secretKey)
+            .compact();
         return token;
     }
 
@@ -50,7 +54,11 @@ public class JwtTokenProvider {
     }
 
     public String getUsername(String token) {
-        String info = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().getSubject();
+        String info = Jwts.parser()
+            .setSigningKey(secretKey)
+            .parseClaimsJws(token)
+            .getBody()
+            .getSubject();
         System.out.println("[getUsername] : "+ info);
         return info;
     }
@@ -63,8 +71,12 @@ public class JwtTokenProvider {
     // 토큰 유효기간 체크
     public boolean validateToken(String token) {
         try {
-            Jws<Claims> claimsJws = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
-            return !claimsJws.getBody().getExpiration().before(new Date());
+            Jws<Claims> claimsJws = Jwts.parser()
+                .setSigningKey(secretKey)
+                .parseClaimsJws(token);
+            return !claimsJws.getBody()
+                .getExpiration()
+                .before(new Date());
         } catch(Exception e) {
             return false;
         }

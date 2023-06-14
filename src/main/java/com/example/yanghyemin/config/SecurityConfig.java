@@ -21,7 +21,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final JwtTokenProvider jwtTokenProvider;
 
-
     public SecurityConfig(JwtTokenProvider jwtTokenProvider) {
         this.jwtTokenProvider = jwtTokenProvider;
     }
@@ -32,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity.httpBasic().disable().csrf().disable().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests().antMatchers("/sign-api/sing-in", "/sign-api/sing-up", "/sign-api/exception").permitAll()
-                .antMatchers(HttpMethod.GET, "/user/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/user/**").permitAll() //
                 .antMatchers("**exception**").permitAll()
                 .antMatchers("/product/**").permitAll()
                 .antMatchers("/board/**").permitAll()
