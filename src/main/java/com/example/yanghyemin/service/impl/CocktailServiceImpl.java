@@ -60,6 +60,16 @@ public class CocktailServiceImpl implements CocktailService {
   }
 
   @Override
+  public List<CocktailResponseDto> getCocktailByNameContainingAndIngredientsContaining(String search) {
+    List<Cocktail> cocktail = cocktailDao.listCocktailByNameContainingAndIngredientsContaining(search);
+    List<CocktailResponseDto> selectCocktail = cocktail
+        .stream()
+        .map(CocktailResponseDto::new)
+        .collect(Collectors.toList());
+    return selectCocktail;
+  }
+
+  @Override
   public List<CocktailResponseDto> listAllCocktail() {
     List<Cocktail> cocktail = cocktailDao.listAllCocktail();
     List<CocktailResponseDto> selectCocktail = cocktail

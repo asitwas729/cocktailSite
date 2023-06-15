@@ -1,5 +1,6 @@
 package com.example.yanghyemin.repository;
 
+import com.example.yanghyemin.dto.CocktailResponseDto;
 import com.example.yanghyemin.entity.Cocktail;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -13,10 +14,12 @@ public interface CocktailRepository extends JpaRepository<Cocktail, Long> {
   List<Cocktail> findAllByOrderByCreatedAtDesc();
 
   //상품명 통해 가져온 편의점칵테일 리스트
-  List<Cocktail> findByName(String name);
+  List<Cocktail> findByNameContaining(String name);
   //재료 통해 가져온 편의점칵테일 리스트
-  List<Cocktail> findByIngredients(String ingredients);
+  List<Cocktail> findByIngredientsContaining(String ingredients);
   //재료 통해 가져온 편의점칵테일 리스트
   List<Cocktail> findByAlcohol(Float alcohol);
+  //검색창(이름,재료) 편의점칵테일 리스트
+  List<Cocktail> findByNameContainingOrIngredientsContaining(String search1, String search2);
 
 }

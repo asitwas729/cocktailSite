@@ -2,6 +2,7 @@ package com.example.yanghyemin.service;
 
 import com.example.yanghyemin.dto.CocktailDto;
 import com.example.yanghyemin.dto.CocktailResponseDto;
+import com.example.yanghyemin.entity.Cocktail;
 
 import java.util.List;
 
@@ -17,6 +18,9 @@ public interface CocktailService {
 
   //도수 통해 가져온 편의점칵테일 리스트
   List<CocktailResponseDto> getCocktailByAlcohol(Float alcohol);
+
+  //검색창(이름,재료) 편의점칵테일 리스트
+  List<CocktailResponseDto> getCocktailByNameContainingAndIngredientsContaining(String search);
 
   //전체 편의점칵테일 리스트
   List<CocktailResponseDto> listAllCocktail();

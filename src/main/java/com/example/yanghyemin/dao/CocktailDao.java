@@ -1,5 +1,6 @@
 package com.example.yanghyemin.dao;
 
+import com.example.yanghyemin.dto.CocktailResponseDto;
 import com.example.yanghyemin.entity.Cocktail;
 
 import java.util.List;
@@ -24,6 +25,8 @@ public interface CocktailDao {
   List<Cocktail> listCocktailByName(String name);
   //재료 통해 가져온 편의점칵테일 리스트
   List<Cocktail> listCocktailByIngredients(String ingredients);
+  //검색창(이름,재료) 편의점칵테일 리스트
+  List<Cocktail> listCocktailByNameContainingAndIngredientsContaining(String search);
   
   //도수 통해 가져온 편의점칵테일 리스트
   List<Cocktail> listCocktailByAlcohol(Float alcohol);

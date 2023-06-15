@@ -72,13 +72,19 @@ public class CocktailDaoImpl implements CocktailDao {
 
   @Override
   public List<Cocktail> listCocktailByName(String name) {
-    List<Cocktail> cocktailList = cocktailRepository.findByName(name);
+    List<Cocktail> cocktailList = cocktailRepository.findByNameContaining(name);
     return cocktailList;
   }
 
   @Override
   public List<Cocktail> listCocktailByIngredients(String ingredients) {
-    List<Cocktail> cocktailList = cocktailRepository.findByIngredients(ingredients);
+    List<Cocktail> cocktailList = cocktailRepository.findByIngredientsContaining(ingredients);
+    return cocktailList;
+  }
+
+  @Override
+  public List<Cocktail> listCocktailByNameContainingAndIngredientsContaining(String search) {
+    List<Cocktail> cocktailList = cocktailRepository.findByNameContainingOrIngredientsContaining(search, search);
     return cocktailList;
   }
 
