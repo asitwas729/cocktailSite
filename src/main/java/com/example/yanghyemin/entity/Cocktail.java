@@ -28,6 +28,8 @@ public class Cocktail {
   private Float alcohol;
   @Column(name = "cvsSweet")
   private Float sweet;
+  @Column(name = "cvsUrl")
+  private String Url;
 
 
 }
