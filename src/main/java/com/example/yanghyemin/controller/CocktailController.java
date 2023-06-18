@@ -59,49 +59,42 @@ public class CocktailController {
   }
 
   @GetMapping("/list")
-  @PreAuthorize("isAnonymous() or hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
   public ResponseEntity<List<CocktailResponseDto>> allProduct() {
     List<CocktailResponseDto> cocktailResponseDtoList = cocktailService.listAllCocktail();
     return ResponseEntity.status(HttpStatus.OK).body(cocktailResponseDtoList);
   }
 
   @GetMapping("/createdAt")
-  @PreAuthorize("isAnonymous() or hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
   public ResponseEntity<List<CocktailResponseDto>> listOrderByCocktail() {
     List<CocktailResponseDto> cocktailResponseDtoList = cocktailService.listAllByCreatedAtDesc();
     return ResponseEntity.status(HttpStatus.OK).body(cocktailResponseDtoList);
   }
 
   @GetMapping("/byName")
-  @PreAuthorize("isAnonymous() or hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
   public ResponseEntity<List<CocktailResponseDto>> listByNameOrderByPrice(String name) {
     List<CocktailResponseDto> cocktailResponseDtoList = cocktailService.getCocktailByName(name);
     return ResponseEntity.status(HttpStatus.OK).body(cocktailResponseDtoList);
   }
 
   @GetMapping("/ingredients")
-  @PreAuthorize("isAnonymous() or hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
   public ResponseEntity<List<CocktailResponseDto>> cocktailByIngredients(String ingredients) {
     List<CocktailResponseDto> cocktailResponseDtoList = cocktailService.getCocktailByIngredients(ingredients);
     return ResponseEntity.status(HttpStatus.OK).body(cocktailResponseDtoList);
   }
 
   @GetMapping("/search")
-  @PreAuthorize("isAnonymous() or hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
   public ResponseEntity<List<CocktailResponseDto>> cocktailByNameAndIngredients(String search) {
     List<CocktailResponseDto> cocktailResponseDtoList = cocktailService.getCocktailByNameContainingAndIngredientsContaining(search);
     return ResponseEntity.status(HttpStatus.OK).body(cocktailResponseDtoList);
   }
 
   @GetMapping("/alcohol")
-  @PreAuthorize("isAnonymous() or hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
   public ResponseEntity<List<CocktailResponseDto>> cocktailByAlcohol(Float alcohol) {
     List<CocktailResponseDto> cocktailResponseDtoList = cocktailService.getCocktailByAlcohol(alcohol);
     return ResponseEntity.status(HttpStatus.OK).body(cocktailResponseDtoList);
   }
 
-  @GetMapping("/")
-  @PreAuthorize("isAnonymous() or hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+  @GetMapping("/id")
   public ResponseEntity<CocktailResponseDto> cocktailById(Long number) {
     CocktailResponseDto cocktailResponseDtoList = cocktailService.getCocktail(number);
     return ResponseEntity.status(HttpStatus.OK).body(cocktailResponseDtoList);

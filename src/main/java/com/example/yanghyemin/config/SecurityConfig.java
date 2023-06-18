@@ -30,7 +30,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         httpSecurity.httpBasic().disable().csrf().disable().sessionManagement()
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-            .authorizeRequests().antMatchers("/sign-api/sing-in", "/sign-api/sing-up", "/sign-api/exception", "/cocktail/list", "/cocktail/createdAt", "/cocktail/byName", "/cocktail/ingredients", "/cocktail/search", "/cocktail/alcohol","/cocktail/id").permitAll()
+            .authorizeRequests().antMatchers("/sign-api/sing-in"
+                , "/sign-api/sing-up", "/sign-api/exception", "/cocktail/list"
+                , "/cocktail/createdAt", "/cocktail/byName", "/cocktail/ingredients"
+                , "/cocktail/search", "/cocktail/alcohol","/cocktail/id"
+                , "/ingredients/list", "/ingredients/byName")
+            .permitAll()
             .antMatchers(HttpMethod.GET, "/user/**").permitAll() //
             .antMatchers(HttpMethod.GET, "/cocktail/**").permitAll()
             .antMatchers("**exception**").permitAll()
