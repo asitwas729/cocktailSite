@@ -29,7 +29,7 @@ public class CocktailDaoImpl implements CocktailDao {
   }
 
   @Override
-  public Cocktail updateCocktail(Long number, String name, String ingredients, String instruction, Float alcohol, Float sweet) throws Exception {
+  public Cocktail updateCocktail(Long number, String name, String ingredients, String instruction,  String Url, Float alcohol, Float sweet) throws Exception {
     Optional<Cocktail> selectedCocktail = cocktailRepository.findById(number);
     Cocktail updateCocktail;
 
@@ -38,6 +38,7 @@ public class CocktailDaoImpl implements CocktailDao {
       cocktail.setName(name);
       cocktail.setIngredients(ingredients);
       cocktail.setInstruction(instruction);
+      cocktail.setUrl(Url);
       cocktail.setAlcohol(alcohol);
       cocktail.setSweet(sweet);
 

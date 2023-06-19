@@ -1,20 +1,21 @@
 package com.example.yanghyemin.dto;
 
-import java.time.LocalDateTime;
 
 public class ChangeCocktailDto {
   private Long number;
   private String name;
   private String ingredients;
   private String instruction;
+  private String url;
   private Float alcohol;
   private Float sweet;
 
-  public ChangeCocktailDto(Long number, String name, String ingredients, String instruction, Float alcohol, Float sweet) {
+  public ChangeCocktailDto(Long number, String name, String ingredients, String instruction, String url, Float alcohol, Float sweet) {
     this.number = number;
     this.name = name;
     this.ingredients = ingredients;
     this.instruction = instruction;
+    this.url = url;
     this.alcohol = alcohol;
     this.sweet = sweet;
   }
@@ -65,5 +66,13 @@ public class ChangeCocktailDto {
 
   public void setSweet(Float sweet) {
     this.sweet = sweet;
+  }
+
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
   }
 }

@@ -31,7 +31,6 @@ public class MyFridgeController {
   public ResponseEntity<MyFridgeResponseDto> insertMyFridge(HttpServletRequest request, @RequestParam Long ingredientsId, @RequestParam String ingredientsName,@RequestParam String ingredientsUrl) throws Exception {
     String userId = jwtTokenProvider.getUsername(request.getHeader("X-AUTH-TOKEN"));
     UserResponseDto userResponseDto = userService.userById(userId);
-    IngredientsResponseDto ingredientsResponseDto = ingredientsService.getIngredients(ingredientsId);
 
     System.out.println("[MyFridgeController] userId" + userId);
 

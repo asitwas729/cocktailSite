@@ -11,7 +11,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("ingredients")
-public class IngredientsController {
+public class
+IngredientsController {
     private final IngredientsService ingredientsService;
 
     public IngredientsController(IngredientsService ingredientsService) {

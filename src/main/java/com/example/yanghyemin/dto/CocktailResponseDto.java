@@ -15,6 +15,7 @@ public class CocktailResponseDto {
   private String name;
   private String ingredients;
   private String instruction;
+  private String Url;
   private Float alcohol;
   private Float sweet;
 
@@ -23,6 +24,7 @@ public class CocktailResponseDto {
     this.name = cocktail.getName();
     this.ingredients = cocktail.getIngredients();
     this.instruction = cocktail.getInstruction();
+    this.Url = cocktail.getUrl();
     this.alcohol = cocktail.getAlcohol();
     this.sweet = cocktail.getSweet();
   }

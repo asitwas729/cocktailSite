@@ -22,14 +22,15 @@ public class Cocktail {
   private String ingredients;
   @Column(name = "cvsInstruction", nullable = false)
   private String instruction;
+  @Column(name = "cvs_url")
+  private String url;
   @Column(name = "cvsdate", nullable = false)
   private LocalDateTime createdAt;
   @Column(name = "cvsAlcohol")
   private Float alcohol;
   @Column(name = "cvsSweet")
   private Float sweet;
-  @Column(name = "cvsUrl")
-  private String Url;
+
 
 
 }

@@ -33,7 +33,7 @@ public class QCocktail extends EntityPathBase<Cocktail> {
 
     public final NumberPath<Float> sweet = createNumber("sweet", Float.class);
 
-    public final StringPath Url = createString("Url");
+    public final StringPath url = createString("url");
 
     public QCocktail(String variable) {
         super(Cocktail.class, forVariable(variable));

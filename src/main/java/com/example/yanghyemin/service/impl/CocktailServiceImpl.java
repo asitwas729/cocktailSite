@@ -95,6 +95,7 @@ public class CocktailServiceImpl implements CocktailService {
     cocktail.setName(cocktailDto.getName());
     cocktail.setIngredients(cocktailDto.getIngredients());
     cocktail.setInstruction(cocktailDto.getInstruction());
+    cocktail.setUrl(cocktail.getUrl());
     cocktail.setAlcohol(cocktailDto.getAlcohol());
     cocktail.setSweet(cocktailDto.getSweet());
     cocktail.setCreatedAt(LocalDateTime.now());
@@ -104,20 +105,22 @@ public class CocktailServiceImpl implements CocktailService {
     cocktailResponseDto.setName(saveCocktail.getName());
     cocktailResponseDto.setIngredients(saveCocktail.getIngredients());
     cocktailResponseDto.setInstruction(saveCocktail.getInstruction());
+    cocktailResponseDto.setUrl(saveCocktail.getUrl());
     cocktailResponseDto.setAlcohol(saveCocktail.getAlcohol());
     cocktailResponseDto.setSweet(saveCocktail.getSweet());
     return cocktailResponseDto;
   }
 
   @Override
-  public CocktailResponseDto changeCocktail(Long number, String name, String ingredients, String instruction, Float alcohol, Float sweet) throws Exception{
-    Cocktail changeCocktail = cocktailDao.updateCocktail(number, name, ingredients,instruction, alcohol, sweet);
+  public CocktailResponseDto changeCocktail(Long number, String name, String ingredients, String instruction, String Url, Float alcohol, Float sweet) throws Exception{
+    Cocktail changeCocktail = cocktailDao.updateCocktail(number, name, ingredients,instruction, Url, alcohol, sweet);
 
     CocktailResponseDto cocktailResponseDto = new CocktailResponseDto();
     cocktailResponseDto.setNumber(changeCocktail.getNumber());
     cocktailResponseDto.setName(changeCocktail.getName());
     cocktailResponseDto.setIngredients(changeCocktail.getIngredients());
     cocktailResponseDto.setInstruction(changeCocktail.getInstruction());
+    cocktailResponseDto.setUrl(changeCocktail.getUrl());
     cocktailResponseDto.setAlcohol(changeCocktail.getAlcohol());
     cocktailResponseDto.setSweet(changeCocktail.getSweet());
     return cocktailResponseDto;

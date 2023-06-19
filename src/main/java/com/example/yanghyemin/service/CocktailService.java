@@ -33,7 +33,7 @@ public interface CocktailService {
   //편의점칵테일 등록
   CocktailResponseDto saveCocktail(CocktailDto cocktailDto);
   //편의점칵테일 수정
-  CocktailResponseDto changeCocktail(Long number, String name, String ingredients, String instruction, Float alcohol, Float sweet) throws Exception;
+  CocktailResponseDto changeCocktail(Long number, String name, String ingredients, String instruction, String Url, Float alcohol, Float sweet) throws Exception;
   //편의점칵테일 삭제
   void delectCocktail(Long number) throws  Exception;
 }

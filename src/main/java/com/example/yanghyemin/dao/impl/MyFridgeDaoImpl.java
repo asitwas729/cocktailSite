@@ -3,18 +3,16 @@ package com.example.yanghyemin.dao.impl;
 import com.example.yanghyemin.dao.MyFridgeDao;
 import com.example.yanghyemin.entity.MyFridge;
 import com.example.yanghyemin.repository.MyFridgeRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
 
 @Component
+@RequiredArgsConstructor
 public class MyFridgeDaoImpl implements MyFridgeDao {
   private final MyFridgeRepository myFridgeRepository;
-
-  public MyFridgeDaoImpl(MyFridgeRepository myFridgeRepository) {
-    this.myFridgeRepository = myFridgeRepository;
-  }
 
   @Override
   public MyFridge insertMyFridge(MyFridge myFridge) {

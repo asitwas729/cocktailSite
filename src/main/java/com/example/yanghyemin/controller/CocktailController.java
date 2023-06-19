@@ -22,11 +22,12 @@ public class CocktailController {
 
   @PostMapping()
   @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-  public ResponseEntity<CocktailResponseDto> insertCocktail(@RequestParam String name, @RequestParam String ingredients, @RequestParam String instruction, @RequestParam Float alcohol, @RequestParam Float sweet) {
+  public ResponseEntity<CocktailResponseDto> insertCocktail(@RequestParam String name, @RequestParam String ingredients, @RequestParam String instruction, @RequestParam String Url, @RequestParam Float alcohol, @RequestParam Float sweet) {
     CocktailDto cocktailDto = new CocktailDto();
     cocktailDto.setName(name);
     cocktailDto.setIngredients(ingredients);
     cocktailDto.setInstruction(instruction);
+    cocktailDto.setUrl(Url);
     cocktailDto.setAlcohol(alcohol);
     cocktailDto.setSweet(sweet);
 
@@ -43,6 +44,7 @@ public class CocktailController {
         changeCocktailDto.getName(),
         changeCocktailDto.getIngredients(),
         changeCocktailDto.getInstruction(),
+        changeCocktailDto.getUrl(),
         changeCocktailDto.getAlcohol(),
         changeCocktailDto.getSweet()
     );

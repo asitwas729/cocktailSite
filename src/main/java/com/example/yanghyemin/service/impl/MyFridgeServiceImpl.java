@@ -5,6 +5,7 @@ import com.example.yanghyemin.dto.MyFridgeDto;
 import com.example.yanghyemin.dto.MyFridgeResponseDto;
 import com.example.yanghyemin.entity.MyFridge;
 import com.example.yanghyemin.service.MyFridgeService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -12,12 +13,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class MyFridgeServiceImpl implements MyFridgeService {
   private final MyFridgeDao myFridgeDao;
-
-  public MyFridgeServiceImpl(MyFridgeDao myFridgeDao) {
-    this.myFridgeDao = myFridgeDao;
-  }
 
   @Override
   public MyFridgeResponseDto insertMyFridge(MyFridgeDto myFridgeDto) {

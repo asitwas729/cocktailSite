@@ -10,7 +10,7 @@ public interface CocktailDao {
   Cocktail insertCocktail(Cocktail cocktail);
 
   //편의점칵테일 수정
-  Cocktail updateCocktail(Long number, String name, String ingredients, String instruction, Float alcohol, Float sweet) throws Exception;
+  Cocktail updateCocktail(Long number, String name, String ingredients, String instruction, String Url, Float alcohol, Float sweet) throws Exception;
 
   //편의점칵테일 삭제
   void deleteCocktail(Long number) throws Exception;
