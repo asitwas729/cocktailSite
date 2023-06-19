@@ -3,17 +3,25 @@ package com.example.yanghyemin.dao.impl;
 import com.example.yanghyemin.dao.IngredientsDao;
 import com.example.yanghyemin.entity.Ingredients;
 import com.example.yanghyemin.repository.IngredientsRepository;
+import com.example.yanghyemin.repository.QIngredientsRepository;
+import com.querydsl.core.types.Predicate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
 
+import static com.example.yanghyemin.entity.QIngredients.ingredients;
+
 @Component
 public class IngredientsDaoImpl implements IngredientsDao {
     private final IngredientsRepository ingredientsRepository;
+    private final QIngredientsRepository qIngredientsRepository;
 
-    public IngredientsDaoImpl(IngredientsRepository ingredientsRepository) {
+    @Autowired
+    public IngredientsDaoImpl(IngredientsRepository ingredientsRepository, QIngredientsRepository qIngredientsRepository) {
         this.ingredientsRepository = ingredientsRepository;
+        this.qIngredientsRepository = qIngredientsRepository;
     }
 
     @Override
@@ -23,7 +31,7 @@ public class IngredientsDaoImpl implements IngredientsDao {
     }
 
     @Override
-    public Ingredients updateCocktail(Long number, String name, Integer price, String url) throws Exception{
+    public Ingredients updateIngredients(Long number, String name, Integer price, String url) throws Exception{
         Optional<Ingredients> selectIngredients = ingredientsRepository.findById(number);
         Ingredients updateIngredients;
 
@@ -50,13 +58,20 @@ public class IngredientsDaoImpl implements IngredientsDao {
 
     @Override
     public List<Ingredients> listAllIngredients() {
-        List<Ingredients> ingredientsList = ingredientsRepository.findAll();
-        return ingredientsList;
+        List<Ingredients> allIngredients = ingredientsRepository.findAll();
+        return allIngredients;
     }
 
     @Override
     public List<Ingredients> listIngredientsByName(String name) {
-        List<Ingredients> ingredientsList = ingredientsRepository.findByNameContaining(name);
-        return ingredientsList;
+        List<Ingredients> selectIngredients = ingredientsRepository.findByNameContaining(name);
+        return selectIngredients;
+    }
+
+    @Override
+    public Ingredients selectIngredients(Long number) {
+        Predicate predicate = ingredients.number.eq(number);
+        Optional<Ingredients> selectIngredients = qIngredientsRepository.findOne(predicate);
+        return selectIngredients.isPresent() ? selectIngredients.get() : null;
     }
 }

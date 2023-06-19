@@ -53,6 +53,7 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
+//querydsl 추가 시작 (위에 plugin 추가 부분과 맞물림)
 def querydslDir = "$buildDir/generated/querydsl"
 querydsl {
     jpa = true

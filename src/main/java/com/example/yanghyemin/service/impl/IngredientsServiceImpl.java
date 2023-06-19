@@ -18,6 +18,16 @@ import java.util.stream.Collectors;
 public class IngredientsServiceImpl implements IngredientsService {
     private final IngredientsDao ingredientsDao;
 
+    @Override
+    public IngredientsResponseDto getIngredients(Long number) {
+        Ingredients ingredients = ingredientsDao.selectIngredients(number);
+        IngredientsResponseDto ingredientsResponseDto = new IngredientsResponseDto();
+        ingredientsResponseDto.setNumber(ingredients.getNumber());
+        ingredientsResponseDto.setName(ingredients.getName());
+        ingredientsResponseDto.setPrice(ingredients.getPrice());
+        ingredientsResponseDto.setUrl(ingredients.getUrl());
+        return ingredientsResponseDto;
+    }
 
     @Override
     public IngredientsResponseDto saveIngredients(IngredientsDto ingredientsDto) {
@@ -27,22 +37,26 @@ public class IngredientsServiceImpl implements IngredientsService {
         ingredients.setUrl(ingredients.getUrl());
 
         Ingredients saveIngredients = ingredientsDao.insertIngredients(ingredients);
+
         IngredientsResponseDto ingredientsResponseDto = new IngredientsResponseDto();
+        ingredientsResponseDto.setNumber(saveIngredients.getNumber());
         ingredientsResponseDto.setName(saveIngredients.getName());
         ingredientsResponseDto.setPrice(saveIngredients.getPrice());
         ingredientsResponseDto.setUrl(saveIngredients.getUrl());
+
         return ingredientsResponseDto;
     }
 
     @Override
     public IngredientsResponseDto changeIngredients(Long number, String name, Integer price, String url) throws Exception {
-        Ingredients changeIngredients = ingredientsDao.updateCocktail(number, name, price, url);
+        Ingredients changeIngredients = ingredientsDao.updateIngredients(number, name, price, url);
 
         IngredientsResponseDto ingredientsResponseDto = new IngredientsResponseDto();
         ingredientsResponseDto.setNumber(changeIngredients.getNumber());
         ingredientsResponseDto.setName(changeIngredients.getName());
         ingredientsResponseDto.setPrice(changeIngredients.getPrice());
         ingredientsResponseDto.setUrl(changeIngredients.getUrl());
+
         return ingredientsResponseDto;
     }
 

@@ -1,6 +1,5 @@
 package com.example.yanghyemin.repository;
 
-import com.example.yanghyemin.dto.CocktailResponseDto;
 import com.example.yanghyemin.entity.Cocktail;
 import org.springframework.data.jpa.repository.JpaRepository;
 

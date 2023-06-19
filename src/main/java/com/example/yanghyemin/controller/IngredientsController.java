@@ -46,14 +46,14 @@ public class IngredientsController {
 
     @DeleteMapping()
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-    public ResponseEntity<String> deleteCocktail(Long number) throws Exception {
+    public ResponseEntity<String> deleteIngredients(Long number) throws Exception {
         ingredientsService.deleteIngredients(number);
         return ResponseEntity.status(HttpStatus.OK).body("정상적으로 삭제되었습니다.");
 
     }
 
     @GetMapping("/list")
-    public ResponseEntity<List<IngredientsResponseDto>> allProduct() {
+    public ResponseEntity<List<IngredientsResponseDto>> allIngredients() {
         List<IngredientsResponseDto> ingredientsResponseDtoList = ingredientsService.listAllIngredients();
         return ResponseEntity.status(HttpStatus.OK).body(ingredientsResponseDtoList);
     }
@@ -62,5 +62,11 @@ public class IngredientsController {
     public ResponseEntity<List<IngredientsResponseDto>> listByName(String name) {
         List<IngredientsResponseDto> ingredientsResponseDtoList = ingredientsService.getIngredientsByName(name);
         return ResponseEntity.status(HttpStatus.OK).body(ingredientsResponseDtoList);
+    }
+
+    @GetMapping("/")
+    public ResponseEntity<IngredientsResponseDto> productById(Long number) {
+        IngredientsResponseDto ingredientsResponseDto = ingredientsService.getIngredients(number);
+        return ResponseEntity.status(HttpStatus.OK).body(ingredientsResponseDto);
     }
 }
