@@ -13,7 +13,7 @@ public class CocktailDto {
   private String name;
   private String ingredients;
   private String instruction;
-  private String url;
   private Float alcohol;
   private Float sweet;
+  private String url;
 }

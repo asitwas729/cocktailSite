@@ -96,6 +96,12 @@ public class CocktailDaoImpl implements CocktailDao {
   }
 
   @Override
+  public List<Cocktail> listCocktailByIngredientsContainingOrIngredientsContainingOrIngredientsContainingOrIngredientsContaining(String s1, String s2, String s3, String s4) {
+    List<Cocktail> cocktailList = cocktailRepository.findByIngredientsContainingOrIngredientsContainingOrIngredientsContainingOrIngredientsContaining(s1, s2, s3, s4);
+    return cocktailList;
+  }
+
+  @Override
   public Cocktail selectCocktail(Long number) {
     Predicate predicate = cocktail.number.eq(number);
     Optional<Cocktail> selectCocktail = qCocktailRepository.findOne(predicate);

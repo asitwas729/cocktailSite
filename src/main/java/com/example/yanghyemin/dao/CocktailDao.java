@@ -31,6 +31,9 @@ public interface CocktailDao {
   //도수 통해 가져온 편의점칵테일 리스트
   List<Cocktail> listCocktailByAlcohol(Float alcohol);
 
+  List<Cocktail> listCocktailByIngredientsContainingOrIngredientsContainingOrIngredientsContainingOrIngredientsContaining(String s1, String s2, String s3, String s4);
+
+
   //아이디를 통해 가져온 상품 정보
   Cocktail selectCocktail(Long number);
 }
