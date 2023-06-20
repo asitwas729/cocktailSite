@@ -23,4 +23,5 @@ public class MBTI {
   private String best;
   @Column(nullable = false)
   private String worst;
+  private String url;
 }

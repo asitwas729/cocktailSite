@@ -18,6 +18,7 @@ public class MBTIResponseDto {
   private String ex;
   private String best;
   private String worst;
+  private String url;
   public MBTIResponseDto(MBTI mbti){
     this.number = mbti.getNumber();
     this.mbti = mbti.getMbti();
@@ -26,5 +27,6 @@ public class MBTIResponseDto {
     this.ex = mbti.getEx();
     this.best = mbti.getBest();
     this.worst = mbti.getWorst();
+    this.url = mbti.getUrl();
   }
 }

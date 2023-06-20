@@ -31,6 +31,8 @@ public class QMBTI extends EntityPathBase<MBTI> {
 
     public final NumberPath<Long> number = createNumber("number", Long.class);
 
+    public final StringPath url = createString("url");
+
     public final StringPath worst = createString("worst");
 
     public QMBTI(String variable) {
