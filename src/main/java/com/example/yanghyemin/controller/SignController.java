@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/sign-api")
+@CrossOrigin(origins = "http://localhost:3000")
 public class SignController {
     private final SignService signService;
 
