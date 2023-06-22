@@ -5,8 +5,15 @@ import com.example.yanghyemin.entity.Cocktail;
 import com.example.yanghyemin.repository.CocktailRepository;
 import com.example.yanghyemin.repository.QCocktailRepository;
 import com.querydsl.core.types.Predicate;
+import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.stereotype.Component;
 
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,10 +23,18 @@ import static com.example.yanghyemin.entity.QCocktail.cocktail;
 public class CocktailDaoImpl implements CocktailDao {
   private final CocktailRepository cocktailRepository;
   private final QCocktailRepository qCocktailRepository;
+  private final DataSource dataSource;
 
-  public CocktailDaoImpl(CocktailRepository cocktailRepository, QCocktailRepository qCocktailRepository) {
+  public CocktailDaoImpl(CocktailRepository cocktailRepository, QCocktailRepository qCocktailRepository, DataSource dataSource) {
     this.cocktailRepository = cocktailRepository;
     this.qCocktailRepository = qCocktailRepository;
+    this.dataSource = dataSource;
+  }
+  private Connection getConnection() {
+    return DataSourceUtils.getConnection(dataSource);
+  }
+  private void close(Connection conn) throws SQLException {
+    DataSourceUtils.releaseConnection(conn, dataSource);
   }
 
   @Override
@@ -95,11 +110,6 @@ public class CocktailDaoImpl implements CocktailDao {
     return cocktailList;
   }
 
-  @Override
-  public List<Cocktail> listCocktailByIngredientsContainingOrIngredientsContainingOrIngredientsContainingOrIngredientsContaining(String s1, String s2, String s3, String s4) {
-    List<Cocktail> cocktailList = cocktailRepository.findByIngredientsContainingOrIngredientsContainingOrIngredientsContainingOrIngredientsContaining(s1, s2, s3, s4);
-    return cocktailList;
-  }
 
   @Override
   public Cocktail selectCocktail(Long number) {

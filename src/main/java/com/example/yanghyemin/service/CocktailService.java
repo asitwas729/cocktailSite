@@ -4,6 +4,7 @@ import com.example.yanghyemin.dto.CocktailDto;
 import com.example.yanghyemin.dto.CocktailResponseDto;
 import com.example.yanghyemin.entity.Cocktail;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface CocktailService {
@@ -22,7 +23,6 @@ public interface CocktailService {
   //검색창(이름,재료) 편의점칵테일 리스트
   List<CocktailResponseDto> getCocktailByNameContainingAndIngredientsContaining(String search);
 
-  List<Cocktail> getCocktailByIngredientsContainingOrIngredientsContainingOrIngredientsContainingOrIngredientsContaining(String s1, String s2, String s3, String s4);
 
 
   //전체 편의점칵테일 리스트

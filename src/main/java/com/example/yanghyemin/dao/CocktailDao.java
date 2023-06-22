@@ -3,6 +3,7 @@ package com.example.yanghyemin.dao;
 import com.example.yanghyemin.dto.CocktailResponseDto;
 import com.example.yanghyemin.entity.Cocktail;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface CocktailDao {
@@ -30,8 +31,6 @@ public interface CocktailDao {
   
   //도수 통해 가져온 편의점칵테일 리스트
   List<Cocktail> listCocktailByAlcohol(Float alcohol);
-
-  List<Cocktail> listCocktailByIngredientsContainingOrIngredientsContainingOrIngredientsContainingOrIngredientsContaining(String s1, String s2, String s3, String s4);
 
 
   //아이디를 통해 가져온 상품 정보

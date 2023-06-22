@@ -1,6 +1,7 @@
 package com.example.yanghyemin.controller;
 
 import com.example.yanghyemin.dto.*;
+import com.example.yanghyemin.entity.Cocktail;
 import com.example.yanghyemin.service.CocktailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @RestController
@@ -101,4 +103,5 @@ public class CocktailController {
     CocktailResponseDto cocktailResponseDtoList = cocktailService.getCocktail(number);
     return ResponseEntity.status(HttpStatus.OK).body(cocktailResponseDtoList);
   }
+
 }
