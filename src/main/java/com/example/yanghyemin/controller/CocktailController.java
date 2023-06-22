@@ -3,12 +3,14 @@ package com.example.yanghyemin.controller;
 import com.example.yanghyemin.dto.*;
 import com.example.yanghyemin.entity.Cocktail;
 import com.example.yanghyemin.service.CocktailService;
+import com.example.yanghyemin.service.IngredientsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.*;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -100,6 +102,16 @@ public class CocktailController {
 
   @GetMapping("/id")
   public ResponseEntity<CocktailResponseDto> cocktailById(Long number) {
+    CocktailResponseDto cocktailResponseDtoList = cocktailService.getCocktail(number);
+    return ResponseEntity.status(HttpStatus.OK).body(cocktailResponseDtoList);
+  }
+
+  @GetMapping("/id1")
+  public ResponseEntity<CocktailResponseDto> cocktailById1(Long number) {
+    String.valueOf(cocktailService.getCocktail(number));
+
+    IngredientsService ingredientsService = null;
+    ingredientsService.getIngredients(number);
     CocktailResponseDto cocktailResponseDtoList = cocktailService.getCocktail(number);
     return ResponseEntity.status(HttpStatus.OK).body(cocktailResponseDtoList);
   }
