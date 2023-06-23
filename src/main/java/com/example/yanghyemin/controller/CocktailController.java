@@ -19,10 +19,11 @@ import java.util.List;
 @RequestMapping("cocktail")
 public class CocktailController {
   private final CocktailService cocktailService;
+  private final IngredientsService ingredientsService;
 
-  @Autowired
-  public CocktailController(CocktailService cocktailService) {
+  public CocktailController(CocktailService cocktailService, IngredientsService ingredientsService) {
     this.cocktailService = cocktailService;
+    this.ingredientsService = ingredientsService;
   }
 
   @PostMapping()

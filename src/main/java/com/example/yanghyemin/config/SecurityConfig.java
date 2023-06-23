@@ -25,6 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         this.jwtTokenProvider = jwtTokenProvider;
     }
 
+
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
 
