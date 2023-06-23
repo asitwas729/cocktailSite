@@ -74,4 +74,11 @@ public class IngredientsDaoImpl implements IngredientsDao {
         Optional<Ingredients> selectIngredients = qIngredientsRepository.findOne(predicate);
         return selectIngredients.isPresent() ? selectIngredients.get() : null;
     }
+
+    @Override
+    public Ingredients selectIngredientsName(String name) {
+        Predicate predicate = ingredients.name.eq(name);
+        Optional<Ingredients> selectIngredients = qIngredientsRepository.findOne(predicate);
+        return selectIngredients.isPresent() ? selectIngredients.get() : null;
+    }
 }

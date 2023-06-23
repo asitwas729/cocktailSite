@@ -17,5 +17,6 @@ public interface IngredientsDao {
     List<Ingredients> listIngredientsByName(String name);
     //아이디를 통해 가져온 재료 정보
     Ingredients selectIngredients(Long number);
+    Ingredients selectIngredientsName(String name);
 
 }

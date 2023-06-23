@@ -30,6 +30,17 @@ public class IngredientsServiceImpl implements IngredientsService {
     }
 
     @Override
+    public IngredientsResponseDto getIngredientsName(String name) {
+        Ingredients ingredients = ingredientsDao.selectIngredientsName(name);
+        IngredientsResponseDto ingredientsResponseDto = new IngredientsResponseDto();
+        ingredientsResponseDto.setNumber(ingredients.getNumber());
+        ingredientsResponseDto.setName(ingredients.getName());
+        ingredientsResponseDto.setPrice(ingredients.getPrice());
+        ingredientsResponseDto.setUrl(ingredients.getUrl());
+        return ingredientsResponseDto;
+    }
+
+    @Override
     public IngredientsResponseDto saveIngredients(IngredientsDto ingredientsDto) {
         Ingredients ingredients = new Ingredients();
         ingredients.setName(ingredients.getName());

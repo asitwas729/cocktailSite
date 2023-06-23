@@ -23,7 +23,7 @@ import java.util.List;
 public class OrderController {
     private final OrderService orderService;
     private final UserService userService;
-    private final IngredientsService productService;
+    private final IngredientsService ingredientsService;
     private final JwtTokenProvider jwtTokenProvider;
 
     @PostMapping()
@@ -31,7 +31,7 @@ public class OrderController {
     public ResponseEntity<OrderResponseDto> insertOrder(HttpServletRequest request, @RequestParam Long productId) throws Exception {
         String userId = jwtTokenProvider.getUsername(request.getHeader("X-AUTH-TOKEN"));
         UserResponseDto userResponseDto = userService.userById(userId);
-        IngredientsResponseDto productResponseDto = productService.getIngredients(productId);
+        IngredientsResponseDto productResponseDto = ingredientsService.getIngredients(productId);
 
         System.out.println("[OrderController] userId" + userId);
 
@@ -46,6 +46,29 @@ public class OrderController {
 
             OrderResponseDto orderResponseDto = orderService.insertOrder(orderDto);
             return ResponseEntity.status(HttpStatus.OK).body(orderResponseDto);
+
+    }
+
+    @PostMapping("/ingredientsName")
+    @PreAuthorize("hasAnyRole('ROLE_USER')")
+    public ResponseEntity<OrderResponseDto> insertIngredients(HttpServletRequest request, @RequestParam String name) throws Exception {
+        String userId = jwtTokenProvider.getUsername(request.getHeader("X-AUTH-TOKEN"));
+        UserResponseDto userResponseDto = userService.userById(userId);
+        IngredientsResponseDto ingredientsResponseDto = ingredientsService.getIngredientsName(name);
+
+        System.out.println("[OrderController] userId" + userId);
+
+
+        OrderDto orderDto = new OrderDto();
+        orderDto.setProductId(ingredientsResponseDto.getNumber());
+        orderDto.setProductName(name);
+        orderDto.setUserId(userResponseDto.getUId());
+        orderDto.setUserName(userResponseDto.getName());
+        orderDto.setPrice(ingredientsResponseDto.getPrice());
+        orderDto.setUrl(ingredientsResponseDto.getUrl());
+
+        OrderResponseDto orderResponseDto = orderService.insertOrder(orderDto);
+        return ResponseEntity.status(HttpStatus.OK).body(orderResponseDto);
 
     }
 
