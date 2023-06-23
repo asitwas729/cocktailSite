@@ -7,6 +7,7 @@ import com.example.yanghyemin.entity.Cocktail;
 import com.example.yanghyemin.service.CocktailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.SQLException;
 import java.time.LocalDateTime;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class CocktailServiceImpl implements CocktailService {
   private final CocktailDao cocktailDao;
 
@@ -70,6 +72,15 @@ public class CocktailServiceImpl implements CocktailService {
     return selectCocktail;
   }
 
+  @Override
+  public List<CocktailResponseDto> getCocktailByIngredientsOr(String s1, String s2, String s3) {
+    List<Cocktail> cocktail = cocktailDao.listCocktailByIngredientsContainingOr(s1, s2, s3);
+    List<CocktailResponseDto> selectCocktail = cocktail
+        .stream()
+        .map(CocktailResponseDto::new)
+        .collect(Collectors.toList());
+    return selectCocktail;
+  }
 
   @Override
   public List<CocktailResponseDto> listAllCocktail() {

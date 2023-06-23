@@ -23,6 +23,8 @@ public interface CocktailService {
   //검색창(이름,재료) 편의점칵테일 리스트
   List<CocktailResponseDto> getCocktailByNameContainingAndIngredientsContaining(String search);
 
+  List<CocktailResponseDto> getCocktailByIngredientsOr(String s1, String s2, String s3);
+
 
 
   //전체 편의점칵테일 리스트

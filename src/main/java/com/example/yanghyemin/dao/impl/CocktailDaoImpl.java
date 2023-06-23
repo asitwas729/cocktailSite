@@ -5,15 +5,10 @@ import com.example.yanghyemin.entity.Cocktail;
 import com.example.yanghyemin.repository.CocktailRepository;
 import com.example.yanghyemin.repository.QCocktailRepository;
 import com.querydsl.core.types.Predicate;
-import org.springframework.jdbc.datasource.DataSourceUtils;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,18 +18,12 @@ import static com.example.yanghyemin.entity.QCocktail.cocktail;
 public class CocktailDaoImpl implements CocktailDao {
   private final CocktailRepository cocktailRepository;
   private final QCocktailRepository qCocktailRepository;
-  private final DataSource dataSource;
+  private final JdbcTemplate jdbcTemplate;
 
-  public CocktailDaoImpl(CocktailRepository cocktailRepository, QCocktailRepository qCocktailRepository, DataSource dataSource) {
+  public CocktailDaoImpl(CocktailRepository cocktailRepository, QCocktailRepository qCocktailRepository, JdbcTemplate jdbcTemplate) {
     this.cocktailRepository = cocktailRepository;
     this.qCocktailRepository = qCocktailRepository;
-    this.dataSource = dataSource;
-  }
-  private Connection getConnection() {
-    return DataSourceUtils.getConnection(dataSource);
-  }
-  private void close(Connection conn) throws SQLException {
-    DataSourceUtils.releaseConnection(conn, dataSource);
+    this.jdbcTemplate = jdbcTemplate;
   }
 
   @Override
@@ -105,6 +94,28 @@ public class CocktailDaoImpl implements CocktailDao {
   }
 
   @Override
+  public List<Cocktail> listCocktailByIngredientsContainingOr(String s1, String s2, String s3) {
+    String s11 = "%"+s1+"%";
+    String s12 = "%"+s2+"%";
+    String s13 = "%"+s3+"%";
+    return jdbcTemplate.query("SELECT * FROM hackathon.cocktail WHERE cvs_ingredients LIKE ? or ? or ?", cocktailRowMapper(), s11, s12, s13);
+  }
+
+  private RowMapper<Cocktail> cocktailRowMapper(){  //객체 생성은 여기서 됨
+    return (rs, rowNum) -> {  //람다로 바꿈
+      Cocktail cocktail = new Cocktail();
+      cocktail.setNumber(rs.getLong("cvs_id"));
+      cocktail.setName(rs.getString("cvs_name"));
+      cocktail.setIngredients(rs.getString("cvs_ingredients"));
+      cocktail.setInstruction(rs.getString("cvs_instruction"));
+      cocktail.setAlcohol(rs.getFloat("cvs_alcohol"));
+      cocktail.setSweet(rs.getFloat("cvs_sweet"));
+      cocktail.setUrl(rs.getString("cvs_url"));
+      return cocktail;
+    };
+  }
+
+  @Override
   public List<Cocktail> listCocktailByAlcohol(Float alcohol) {
     List<Cocktail> cocktailList = cocktailRepository.findByAlcohol(alcohol);
     return cocktailList;
@@ -117,4 +128,5 @@ public class CocktailDaoImpl implements CocktailDao {
     Optional<Cocktail> selectCocktail = qCocktailRepository.findOne(predicate);
     return selectCocktail.isPresent() ? selectCocktail.get() : null;
   }
+
 }

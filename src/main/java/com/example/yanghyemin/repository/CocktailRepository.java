@@ -21,6 +21,5 @@ public interface CocktailRepository extends JpaRepository<Cocktail, Long> {
   //검색창(이름,재료) 편의점칵테일 리스트
   List<Cocktail> findByNameContainingOrIngredientsContaining(String search1, String search2);
 
-  List<Cocktail> findByIngredientsContainingOrIngredientsContainingOrIngredientsContainingOrIngredientsContaining(String s1, String s2, String s3, String s4);
 
 }

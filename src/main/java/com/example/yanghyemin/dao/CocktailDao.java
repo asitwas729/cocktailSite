@@ -28,6 +28,7 @@ public interface CocktailDao {
   List<Cocktail> listCocktailByIngredients(String ingredients);
   //검색창(이름,재료) 편의점칵테일 리스트
   List<Cocktail> listCocktailByNameContainingAndIngredientsContaining(String search);
+  List<Cocktail> listCocktailByIngredientsContainingOr(String s1, String s2, String s3);
   
   //도수 통해 가져온 편의점칵테일 리스트
   List<Cocktail> listCocktailByAlcohol(Float alcohol);

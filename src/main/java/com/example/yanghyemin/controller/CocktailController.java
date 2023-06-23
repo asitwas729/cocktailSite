@@ -93,6 +93,11 @@ public class CocktailController {
     List<CocktailResponseDto> cocktailResponseDtoList = cocktailService.getCocktailByNameContainingAndIngredientsContaining(search);
     return ResponseEntity.status(HttpStatus.OK).body(cocktailResponseDtoList);
   }
+  @GetMapping("/ingredientsOr")
+  public ResponseEntity<List<CocktailResponseDto>> cocktailByIngredientsOr(String s1, String s2, String s3) {
+    List<CocktailResponseDto> cocktailResponseDtoList = cocktailService.getCocktailByIngredientsOr(s1, s2, s3);
+    return ResponseEntity.status(HttpStatus.OK).body(cocktailResponseDtoList);
+  }
 
   @GetMapping("/alcohol")
   public ResponseEntity<List<CocktailResponseDto>> cocktailByAlcohol(Float alcohol) {
