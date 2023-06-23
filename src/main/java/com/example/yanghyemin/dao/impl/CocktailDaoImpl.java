@@ -98,7 +98,7 @@ public class CocktailDaoImpl implements CocktailDao {
     String s11 = "%"+s1+"%";
     String s12 = "%"+s2+"%";
     String s13 = "%"+s3+"%";
-    return jdbcTemplate.query("SELECT * FROM hackathon.cocktail WHERE cvs_ingredients LIKE ? or ? or ?", cocktailRowMapper(), s11, s12, s13);
+    return jdbcTemplate.query("SELECT * FROM hackathon.cocktail WHERE cvs_ingredients LIKE ? or cvs_ingredients LIKE ? or cvs_ingredients LIKE ?", cocktailRowMapper(), s11, s12, s13);
   }
 
   private RowMapper<Cocktail> cocktailRowMapper(){  //객체 생성은 여기서 됨

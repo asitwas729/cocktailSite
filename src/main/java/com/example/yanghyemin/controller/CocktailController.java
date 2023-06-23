@@ -93,8 +93,8 @@ public class CocktailController {
     List<CocktailResponseDto> cocktailResponseDtoList = cocktailService.getCocktailByNameContainingAndIngredientsContaining(search);
     return ResponseEntity.status(HttpStatus.OK).body(cocktailResponseDtoList);
   }
-  @GetMapping("/ingredientsOr")
-  public ResponseEntity<List<CocktailResponseDto>> cocktailByIngredientsOr(String s1, String s2, String s3) {
+  @GetMapping("/ingredientsContain")
+  public ResponseEntity<List<CocktailResponseDto>> cocktailByIngredientsContain(String s1, String s2, String s3) {
     List<CocktailResponseDto> cocktailResponseDtoList = cocktailService.getCocktailByIngredientsOr(s1, s2, s3);
     return ResponseEntity.status(HttpStatus.OK).body(cocktailResponseDtoList);
   }
@@ -111,14 +111,14 @@ public class CocktailController {
     return ResponseEntity.status(HttpStatus.OK).body(cocktailResponseDtoList);
   }
 
-  @GetMapping("/id1")
-  public ResponseEntity<CocktailResponseDto> cocktailById1(Long number) {
-    String.valueOf(cocktailService.getCocktail(number));
-
-    IngredientsService ingredientsService = null;
-    ingredientsService.getIngredients(number);
-    CocktailResponseDto cocktailResponseDtoList = cocktailService.getCocktail(number);
-    return ResponseEntity.status(HttpStatus.OK).body(cocktailResponseDtoList);
-  }
+//  @GetMapping("/id1")
+//  public ResponseEntity<CocktailResponseDto> cocktailById1(Long number) {
+//    String.valueOf(cocktailService.getCocktail(number));
+//
+//    IngredientsService ingredientsService = null;
+//    ingredientsService.getIngredients(number);
+//    CocktailResponseDto cocktailResponseDtoList = cocktailService.getCocktail(number);
+//    return ResponseEntity.status(HttpStatus.OK).body(cocktailResponseDtoList);
+//  }
 
 }
