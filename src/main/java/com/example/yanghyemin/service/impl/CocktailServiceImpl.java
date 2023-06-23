@@ -33,6 +33,18 @@ public class CocktailServiceImpl implements CocktailService {
   }
 
   @Override
+  public CocktailResponseDto getCocktailIngredients(String name) {
+    Cocktail cocktail = cocktailDao.selectIngredients(name);
+    CocktailResponseDto cocktailResponseDto = new CocktailResponseDto();
+    cocktailResponseDto.setName(cocktail.getName());
+    cocktailResponseDto.setIngredients(cocktail.getIngredients());
+    cocktailResponseDto.setInstruction(cocktail.getInstruction());
+    cocktailResponseDto.setAlcohol(cocktail.getAlcohol());
+    cocktailResponseDto.setSweet(cocktail.getSweet());
+    return cocktailResponseDto;
+  }
+
+  @Override
   public List<CocktailResponseDto> getCocktailByName(String name) {
     List<Cocktail> cocktail = cocktailDao.listCocktailByName(name);
     List<CocktailResponseDto> selectCocktail = cocktail

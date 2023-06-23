@@ -5,6 +5,7 @@ import com.example.yanghyemin.entity.Ingredients;
 import com.example.yanghyemin.repository.IngredientsRepository;
 import com.example.yanghyemin.repository.QIngredientsRepository;
 import com.querydsl.core.types.Predicate;
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -12,16 +13,18 @@ import java.util.List;
 import java.util.Optional;
 
 import static com.example.yanghyemin.entity.QIngredients.ingredients;
+import static com.example.yanghyemin.entity.QCocktail.cocktail;
 
 @Component
 public class IngredientsDaoImpl implements IngredientsDao {
     private final IngredientsRepository ingredientsRepository;
     private final QIngredientsRepository qIngredientsRepository;
+    private final JPAQueryFactory jpaQueryFactory;
 
-    @Autowired
-    public IngredientsDaoImpl(IngredientsRepository ingredientsRepository, QIngredientsRepository qIngredientsRepository) {
+    public IngredientsDaoImpl(IngredientsRepository ingredientsRepository, QIngredientsRepository qIngredientsRepository, JPAQueryFactory jpaQueryFactory) {
         this.ingredientsRepository = ingredientsRepository;
         this.qIngredientsRepository = qIngredientsRepository;
+        this.jpaQueryFactory = jpaQueryFactory;
     }
 
     @Override
@@ -81,4 +84,6 @@ public class IngredientsDaoImpl implements IngredientsDao {
         Optional<Ingredients> selectIngredients = qIngredientsRepository.findOne(predicate);
         return selectIngredients.isPresent() ? selectIngredients.get() : null;
     }
+
+
 }

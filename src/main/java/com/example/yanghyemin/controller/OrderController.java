@@ -74,7 +74,7 @@ public class OrderController {
 
     @DeleteMapping()
     @PreAuthorize("hasAnyRole('ROLE_USER') or hasAnyRole('ROLE_ADMIN')")
-    public ResponseEntity<String> deleteOrder(Long id) throws Exception {
+    public ResponseEntity<String> deleteOrder(HttpServletRequest request, Long id) throws Exception {
         orderService.delectOrder(id);
         return ResponseEntity.status(HttpStatus.OK).body("정상적으로 삭제되었습니다.");
 
@@ -82,32 +82,31 @@ public class OrderController {
 
     @GetMapping("/list")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-    public ResponseEntity<List<OrderResponseDto>> listAllOrder() {
+    public ResponseEntity<List<OrderResponseDto>> listAllOrder(HttpServletRequest request) {
         List<OrderResponseDto> orderResponseDtoList = orderService.listAllOrder();
         return ResponseEntity.status(HttpStatus.OK).body(orderResponseDtoList);
     }
 
     @GetMapping("/listByProductId")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-    public ResponseEntity<List<OrderResponseDto>> listByProductId(@RequestParam Long pId) {
+    public ResponseEntity<List<OrderResponseDto>> listByProductId(HttpServletRequest request, @RequestParam Long pId) {
         List<OrderResponseDto> orderResponseDtoList = orderService.listOrderByProductId(pId);
         return ResponseEntity.status(HttpStatus.OK).body(orderResponseDtoList);
     }
 
     @GetMapping("/listByUserId")
     @PreAuthorize("hasAnyRole('ROLE_USER') or hasAnyRole('ROLE_ADMIN')")
-    public ResponseEntity<List<OrderResponseDto>> listByUserId(@RequestParam String uId) {
+    public ResponseEntity<List<OrderResponseDto>> listByUserId(HttpServletRequest request, @RequestParam String uId) {
         List<OrderResponseDto> orderResponseDtoList = orderService.listOrderByUserId(uId);
         return ResponseEntity.status(HttpStatus.OK).body(orderResponseDtoList);
     }
 
     @GetMapping("/")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-    public ResponseEntity<OrderResponseDto> orderById(@RequestParam Long id) {
+    public ResponseEntity<OrderResponseDto> orderById(HttpServletRequest request, @RequestParam Long id) {
         OrderResponseDto orderResponseDto = orderService.selectOrder(id);
         return ResponseEntity.status(HttpStatus.OK).body(orderResponseDto);
     }
-
 
 
 }

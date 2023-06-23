@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.swing.*;
 import java.sql.SQLException;
 import java.util.List;
@@ -26,7 +27,7 @@ public class CocktailController {
 
   @PostMapping()
   @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-  public ResponseEntity<CocktailResponseDto> insertCocktail(@RequestParam String name, @RequestParam String ingredients, @RequestParam String instruction, @RequestParam String Url, @RequestParam Float alcohol, @RequestParam Float sweet) {
+  public ResponseEntity<CocktailResponseDto> insertCocktail(HttpServletRequest request, @RequestParam String name, @RequestParam String ingredients, @RequestParam String instruction, @RequestParam String Url, @RequestParam Float alcohol, @RequestParam Float sweet) {
     CocktailDto cocktailDto = new CocktailDto();
     cocktailDto.setName(name);
     cocktailDto.setIngredients(ingredients);
@@ -42,7 +43,7 @@ public class CocktailController {
 
   @PutMapping()
   @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-  public ResponseEntity<CocktailResponseDto> updateCocktail(@RequestBody ChangeCocktailDto changeCocktailDto) throws Exception{
+  public ResponseEntity<CocktailResponseDto> updateCocktail(HttpServletRequest request, @RequestBody ChangeCocktailDto changeCocktailDto) throws Exception{
     CocktailResponseDto cocktailResponseDto = cocktailService.changeCocktail(
         changeCocktailDto.getNumber(),
         changeCocktailDto.getName(),
@@ -58,7 +59,7 @@ public class CocktailController {
 
   @DeleteMapping()
   @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-  public ResponseEntity<String> deleteCocktail(Long number) throws Exception {
+  public ResponseEntity<String> deleteCocktail(HttpServletRequest request, Long number) throws Exception {
     cocktailService.delectCocktail(number);
     return ResponseEntity.status(HttpStatus.OK).body("정상적으로 삭제되었습니다.");
 

@@ -1,12 +1,15 @@
 package com.example.yanghyemin.controller;
 
 import com.example.yanghyemin.dto.*;
+import com.example.yanghyemin.security.JwtTokenProvider;
 import com.example.yanghyemin.service.IngredientsService;
+import com.example.yanghyemin.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -14,15 +17,20 @@ import java.util.List;
 public class
 IngredientsController {
     private final IngredientsService ingredientsService;
+    private final JwtTokenProvider jwtTokenProvider;
 
-    public IngredientsController(IngredientsService ingredientsService) {
+
+    public IngredientsController(IngredientsService ingredientsService, JwtTokenProvider jwtTokenProvider) {
         this.ingredientsService = ingredientsService;
+        this.jwtTokenProvider = jwtTokenProvider;
     }
 
     @PostMapping()
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-    public ResponseEntity<IngredientsResponseDto> insertIngredients(@RequestParam String name, @RequestParam Integer price, @RequestParam String url) {
+    public ResponseEntity<IngredientsResponseDto> insertIngredients(HttpServletRequest request, @RequestParam String name, @RequestParam Integer price, @RequestParam String url) {
         IngredientsDto ingredientsDto = new IngredientsDto();
+
+        jwtTokenProvider.getAuthenication(request.getHeader("X-AUTH-TOKEN"));
         ingredientsDto.setName(name);
         ingredientsDto.setPrice(price);
         ingredientsDto.setUrl(url);
@@ -34,7 +42,7 @@ IngredientsController {
 
     @PutMapping()
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-    public ResponseEntity<IngredientsResponseDto> updateIngredients(@RequestBody ChangeIngredientDto changeIngredientDto) throws Exception{
+    public ResponseEntity<IngredientsResponseDto> updateIngredients(HttpServletRequest request, @RequestBody ChangeIngredientDto changeIngredientDto) throws Exception{
         IngredientsResponseDto ingredientsResponseDto = ingredientsService.changeIngredients(
             changeIngredientDto.getNumber(),
             changeIngredientDto.getName(),
@@ -47,7 +55,7 @@ IngredientsController {
 
     @DeleteMapping()
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-    public ResponseEntity<String> deleteIngredients(Long number) throws Exception {
+    public ResponseEntity<String> deleteIngredients(HttpServletRequest request, Long number) throws Exception {
         ingredientsService.deleteIngredients(number);
         return ResponseEntity.status(HttpStatus.OK).body("정상적으로 삭제되었습니다.");
 

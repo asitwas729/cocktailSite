@@ -31,6 +31,7 @@ public class BoardController {
         String userId = jwtTokenProvider.getUsername(request.getHeader("X-AUTH-TOKEN"));
         UserResponseDto userResponseDto = userService.userById(userId);
 
+
         boardDto.setTitle(title);
         boardDto.setRecipe(recipe);
         boardDto.setRingredients(ringredients);

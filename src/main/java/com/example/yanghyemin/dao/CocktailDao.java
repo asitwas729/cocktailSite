@@ -34,6 +34,9 @@ public interface CocktailDao {
   List<Cocktail> listCocktailByAlcohol(Float alcohol);
 
 
+
   //아이디를 통해 가져온 상품 정보
   Cocktail selectCocktail(Long number);
+  //이름 넣으면 재료 출력함
+  Cocktail selectIngredients(String name);
 }

@@ -10,6 +10,8 @@ import java.util.List;
 public interface CocktailService {
   //번호를 통해 편의점칵테일 리스트
   CocktailResponseDto getCocktail(Long number);
+  //이름을 통해 칵테일 재료 출력
+  CocktailResponseDto getCocktailIngredients(String name);
 
   //이름을 통해 가져온 편의점칵테일 리스트
   List<CocktailResponseDto> getCocktailByName(String name);

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -24,14 +25,14 @@ public class UserController {
 
     @GetMapping("/list")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-    public ResponseEntity<List<UserResponseDto>> allUserList() {
+    public ResponseEntity<List<UserResponseDto>> allUserList(HttpServletRequest request) {
         List<UserResponseDto> userResponseDtoList = userService.listAllUser();
         return ResponseEntity.status(HttpStatus.OK).body(userResponseDtoList);
     }
 
     @GetMapping("/listOrderByName")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-    public ResponseEntity<List<UserResponseDto>> allUserOrderByName() {
+    public ResponseEntity<List<UserResponseDto>> allUserOrderByName(HttpServletRequest request) {
         List<UserResponseDto> userResponseDtoList = userService.listAllByNameAsc();
         return ResponseEntity.status(HttpStatus.OK).body(userResponseDtoList);
     }

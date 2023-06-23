@@ -129,4 +129,10 @@ public class CocktailDaoImpl implements CocktailDao {
     return selectCocktail.isPresent() ? selectCocktail.get() : null;
   }
 
+  @Override
+  public Cocktail selectIngredients(String name) {
+    Predicate predicate = cocktail.name.eq(name);
+    Optional<Cocktail> selectCocktail = qCocktailRepository.findOne(predicate);
+    return selectCocktail.isPresent() ? selectCocktail.get() : null;
+  }
 }
