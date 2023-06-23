@@ -19,6 +19,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/board")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://3.39.190.51:3000")
 public class BoardController {
     private final BoardService boardService;
     private final JwtTokenProvider jwtTokenProvider;

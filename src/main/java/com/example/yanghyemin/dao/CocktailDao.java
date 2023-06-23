@@ -39,4 +39,5 @@ public interface CocktailDao {
   Cocktail selectCocktail(Long number);
   //이름 넣으면 재료 출력함
   Cocktail selectIngredients(String name);
+  Cocktail selectCocktailName(String name);
 }

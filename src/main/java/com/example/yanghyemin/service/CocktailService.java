@@ -13,6 +13,8 @@ public interface CocktailService {
   //이름을 통해 칵테일 재료 출력
   CocktailResponseDto getCocktailIngredients(String name);
 
+  CocktailResponseDto getCocktailName(String name);
+
   //이름을 통해 가져온 편의점칵테일 리스트
   List<CocktailResponseDto> getCocktailByName(String name);
   
